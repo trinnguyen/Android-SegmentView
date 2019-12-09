@@ -1,10 +1,10 @@
 # Android-SegmentView
 Simple Android Segment Control cloned from iOS 13
 
-
+![Sample SegmentView](https://raw.githubusercontent.com/trinnguyen/Android-SegmentView/master/segment_view_sample.jpg)
 
 ## XML layout code
-```
+```xml
 <com.trinnguyen.SegmentView
     android:id="@+id/segment_2"
     android:layout_width="300dp"
@@ -22,7 +22,7 @@ Simple Android Segment Control cloned from iOS 13
 ```
 
 ## Update title
-```
+```java
 segmentView.setText(0, "Map");
 segmentView.setText(1, "Transit");
 segmentView.setText(2, "Satellite");
