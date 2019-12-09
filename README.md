@@ -1,5 +1,4 @@
-# Android-SegmentView
-Simple Android Segment Control cloned from iOS 13
+SegmentView: Simple Android Segment Control cloned from iOS 13
 
 <img src="https://raw.githubusercontent.com/trinnguyen/Android-SegmentView/master/segment_view_sample.jpg" alt="Sample Android SegmentView" width="360"/>
 
