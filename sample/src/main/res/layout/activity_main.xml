@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <com.trinnguyen.SegmentView
+        android:layout_width="300dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="24dp"
+        app:separateLineColor="#D6D6D9"
+        app:unselectedTextColor="#7F7F7F"
+        app:selectedTextColor="#FFFFFF"
+        app:unselectedBackgroundColor="#EEEEEF"
+        app:selectedBackgroundColor="@color/colorAccent"
+        app:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:numSegments="2"
+        app:selectedIndex="1"/>
+
+    <com.trinnguyen.SegmentView
+        android:id="@+id/segment_2"
+        android:layout_width="300dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="24dp"
+        app:separateLineColor="#D6D6D9"
+        app:unselectedTextColor="#7F7F7F"
+        app:selectedTextColor="#FFFFFF"
+        app:unselectedBackgroundColor="#EEEEEF"
+        app:selectedBackgroundColor="@color/colorPrimary"
+        app:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:numSegments="3"
+        app:selectedIndex="1"/>
+
+</LinearLayout>

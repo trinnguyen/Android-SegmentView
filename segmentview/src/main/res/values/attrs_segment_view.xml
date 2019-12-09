@@ -1,0 +1,12 @@
+<resources>
+    <declare-styleable name="SegmentView">
+        <attr name="unselectedTextColor" format="color" />
+        <attr name="selectedTextColor" format="color" />
+        <attr name="unselectedBackgroundColor" format="color" />
+        <attr name="selectedBackgroundColor" format="color" />
+        <attr name="separateLineColor" format="color" />
+        <attr name="numSegments" format="integer" />
+        <attr name="selectedIndex" format="integer" />
+        <attr name="textAppearance" format="reference" />
+    </declare-styleable>
+</resources>
