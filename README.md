@@ -10,8 +10,6 @@ Simple Android Segment Control cloned from iOS 13
     android:id="@+id/segment_2"
     android:layout_width="300dp"
     android:layout_height="36dp"
-    android:layout_marginTop="100dp"
-    android:layout_marginStart="24dp"
     app:separateLineColor="#D6D6D9"
     app:unselectedTextColor="#7F7F7F"
     app:selectedTextColor="#FFFFFF"
