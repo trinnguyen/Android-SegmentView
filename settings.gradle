@@ -1,2 +1,2 @@
-include ':segmentview', ':sample'
-rootProject.name='SegmentView Sample'
+include ':app', ':segmentview'
+rootProject.name='SegmentView'
