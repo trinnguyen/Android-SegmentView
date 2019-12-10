@@ -1,5 +1,6 @@
 package com.trinnguyen;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -9,7 +10,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
-import android.graphics.drawable.TransitionDrawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -25,6 +25,11 @@ import java.util.List;
 
 public class SegmentView extends LinearLayout implements View.OnClickListener {
 
+    public interface OnSegmentItemSelectedListener {
+        void onSegmentItemSelected(int index);
+        void onSegmentItemReselected(int index);
+    }
+
     private static final String LINE_TAG = "line";
 
     private int separateLineColor;
@@ -36,6 +41,7 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
     private int textAppearanceId;
 
     private GradientDrawable backgroundDrawable;
+    private OnSegmentItemSelectedListener onSegmentItemSelectedListener;
 
     public SegmentView(Context context) {
         super(context);
@@ -99,6 +105,7 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private TextView createTextView(int index) {
         TextView textView = new TextView(getContext());
         textView.setText("Item " + index);
@@ -130,10 +137,6 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
         return line;
     }
 
-    TransitionDrawable selectedDrawable = new TransitionDrawable(new Drawable[]{createUnselectedItemBackground(), createSelectedItemBackground()});
-
-    TransitionDrawable unselectedDrawable = new TransitionDrawable(new Drawable[]{createSelectedItemBackground(), createUnselectedItemBackground()});
-
     private void updateSelectionState() {
         // color
         for (int i = 0; i< getChildCount(); i++) {
@@ -145,8 +148,9 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
                 view.setBackground(isSelected ? createSelectedItemBackground() : createUnselectedItemBackground());
 
                 view.setElevation(dpToPx(isSelected ? 2 : 0));
-                ((TextView) view).setTextColor(isSelected ? selectedTextColor : unselectedTextColor);
-                ((TextView) view).setTypeface(((TextView) view).getTypeface(), isSelected ? Typeface.BOLD : Typeface.NORMAL);
+                TextView textView = (TextView) view;
+                textView.setTextColor(isSelected ? selectedTextColor : unselectedTextColor);
+                textView.setTypeface(Typeface.create(textView.getTypeface(), isSelected ? Typeface.BOLD : Typeface.NORMAL));
 
                 // lines
                 if (i - 1 >= 0) {
@@ -186,7 +190,7 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
         }
     }
 
-    private List<String> items = new ArrayList<String>();
+    private List<String> items = new ArrayList<>();
 
     public void setText(int index, String text) {
         if (index >= 0) {
@@ -200,6 +204,14 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
             // update
             updateTitles();
         }
+    }
+
+    public String getText(int index) {
+        if (index >= 0 && index < items.size()) {
+            return items.get(index);
+        }
+
+        return null;
     }
 
     public int getUnselectedTextColor() {
@@ -265,6 +277,14 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
         }
     }
 
+    public OnSegmentItemSelectedListener getOnSegmentItemSelectedListener() {
+        return onSegmentItemSelectedListener;
+    }
+
+    public void setOnSegmentItemSelectedListener(OnSegmentItemSelectedListener onSegmentItemSelectedListener) {
+        this.onSegmentItemSelectedListener = onSegmentItemSelectedListener;
+    }
+
     private static int dpToPx(int dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, Resources.getSystem().getDisplayMetrics());
     }
@@ -283,6 +303,13 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
         if (index != currentSelectedIndex()) {
             selectedIndex = index;
             updateSelectionState();
+            if (onSegmentItemSelectedListener != null) {
+                onSegmentItemSelectedListener.onSegmentItemSelected(selectedIndex);
+            }
+        } else {
+            if (onSegmentItemSelectedListener != null) {
+                onSegmentItemSelectedListener.onSegmentItemReselected(selectedIndex);
+            }
         }
     }
 }
