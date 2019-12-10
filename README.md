@@ -22,9 +22,39 @@ Simple Android Segment Control cloned from iOS 13
     app:selectedIndex="1"/>
 ```
 
-## Update title
+## Usage in Android
+
+### Update title
 ```java
+SegmentView segmentView = findViewById(R.id.segment_2);
 segmentView.setText(0, "Map");
 segmentView.setText(1, "Transit");
 segmentView.setText(2, "Satellite");
 ```
+
+### Listener
+```
+@Override
+protected void onStart() {
+    super.onStart();
+    segmentView.setOnSegmentItemSelectedListener(this);
+}
+
+@Override
+protected void onStop() {
+    super.onStop();
+    segmentView.setOnSegmentItemSelectedListener(null);
+}
+```
+
+## Usage in Xamarin.Android
+
+### Update title
+```java
+SegmentView segmentView = FindViewById<SegmentView>(Resource.Id.segment_2);
+segmentView.SetText(0, "Map");
+segmentView.SetText(1, "Transit");
+segmentView.SetText(2, "Satellite");
+```
+
+### Listener
