@@ -37,7 +37,7 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
     private int selectedTextColor;
     private int selectedBackgroundColor;
     private int numSegments;
-    private int selectedIndex;
+    private int selectedIndex = -1;
     private int textAppearanceId;
 
     private GradientDrawable backgroundDrawable;
@@ -294,7 +294,7 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
             return selectedIndex;
         }
 
-        return 0;
+        return -1;
     }
 
     @Override

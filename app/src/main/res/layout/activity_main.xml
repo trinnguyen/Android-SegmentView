@@ -36,6 +36,6 @@
         app:selectedBackgroundColor="@color/colorPrimary"
         app:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:numSegments="3"
-        app:selectedIndex="1"/>
+        app:selectedIndex="-1"/>
 
 </LinearLayout>
