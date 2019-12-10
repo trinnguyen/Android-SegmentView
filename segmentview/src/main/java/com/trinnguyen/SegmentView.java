@@ -147,10 +147,14 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
                 boolean isSelected = index == currentSelectedIndex();
                 view.setBackground(isSelected ? createSelectedItemBackground() : createUnselectedItemBackground());
 
+                // color and font
                 view.setElevation(dpToPx(isSelected ? 2 : 0));
                 TextView textView = (TextView) view;
                 textView.setTextColor(isSelected ? selectedTextColor : unselectedTextColor);
                 textView.setTypeface(Typeface.create(textView.getTypeface(), isSelected ? Typeface.BOLD : Typeface.NORMAL));
+
+                // enable
+                updateEnableState(textView);
 
                 // lines
                 if (i - 1 >= 0) {
@@ -163,6 +167,11 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
                 }
             }
         }
+    }
+
+    private void updateEnableState(TextView textView) {
+        textView.setEnabled(isEnabled());
+        textView.setAlpha(isEnabled() ? 1 : 0.5f);
     }
 
     private final int rippleColor = Color.parseColor("#1f000000");
@@ -295,6 +304,15 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
         }
 
         return -1;
+    }
+
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        for (int i = 0; i< getChildCount(); i++) {
+            if (getChildAt(i) instanceof TextView)
+                updateEnableState((TextView) getChildAt(i));
+        }
     }
 
     @Override
