@@ -3,6 +3,24 @@ Simple Android Segment Control cloned from iOS 13
 
 <img src="https://raw.githubusercontent.com/trinnguyen/Android-SegmentView/master/segment_view_sample.jpg" alt="Sample Android SegmentView" width="360"/>
 
+## Usage in Android Gradle Module using JitPack.io
+- Add it in your root `build.gradle` at the end of repositories:
+```
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+- Add the dependency to module's build.gradle
+```
+dependencies {
+    ....
+    implementation 'com.github.trinnguyen:Android-SegmentView:master-SNAPSHOT'
+}
+```
 
 ## XML layout code
 ```xml
