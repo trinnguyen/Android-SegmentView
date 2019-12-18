@@ -20,6 +20,7 @@
         app:unselectedBackgroundColor="#EEEEEF"
         app:selectedBackgroundColor="@color/colorAccent"
         app:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:innerPadding="8dp"
         app:numSegments="2"
         app:selectedIndex="1"/>
 
@@ -35,6 +36,7 @@
         app:unselectedBackgroundColor="#EEEEEF"
         app:selectedBackgroundColor="@color/colorPrimary"
         app:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:innerPadding="10dp"
         app:numSegments="3"
         app:selectedIndex="-1"/>
 

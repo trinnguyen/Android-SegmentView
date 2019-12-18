@@ -8,5 +8,6 @@
         <attr name="numSegments" format="integer" />
         <attr name="selectedIndex" format="integer" />
         <attr name="textAppearance" format="reference" />
+        <attr name="innerPadding" format="dimension" />
     </declare-styleable>
 </resources>

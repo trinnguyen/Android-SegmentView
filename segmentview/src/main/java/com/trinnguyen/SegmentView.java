@@ -39,6 +39,7 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
     private int numSegments;
     private int selectedIndex = -1;
     private int textAppearanceId;
+    private int innerPadding;
 
     private GradientDrawable backgroundDrawable;
     private OnSegmentItemSelectedListener onSegmentItemSelectedListener;
@@ -78,6 +79,7 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
         numSegments = a.getInteger(R.styleable.SegmentView_numSegments, 2);
         selectedIndex = a.getInteger(R.styleable.SegmentView_selectedIndex, 0);
         textAppearanceId = a.getResourceId(R.styleable.SegmentView_textAppearance, 0);
+        innerPadding = a.getDimensionPixelSize(R.styleable.SegmentView_innerPadding, dpToPx(8));
 
         a.recycle();
 
@@ -121,8 +123,7 @@ public class SegmentView extends LinearLayout implements View.OnClickListener {
         layoutParams.setMargins(margin, margin, margin, margin);
         textView.setLayoutParams(layoutParams);
 
-        int padding = dpToPx(16);
-        textView.setPadding(padding, 0, padding, 0);
+        textView.setPadding(innerPadding, 0, innerPadding, 0);
         return textView;
     }
 
