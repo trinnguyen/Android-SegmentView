@@ -1,4 +1,6 @@
-## SegmentView
+## SegmentView 
+[![NuGet Badge](https://buildstats.info/nuget/Xamarin.SegmentView)](https://www.nuget.org/packages/Xamarin.SegmentView/)
+
 Simple Android Segment Control cloned from iOS 13
 
 <img src="https://raw.githubusercontent.com/trinnguyen/Android-SegmentView/master/segment_view_sample.jpg" alt="Sample Android SegmentView" width="360"/>
@@ -64,6 +66,13 @@ protected void onStop() {
 ```
 
 ## Usage in Xamarin.Android
+
+### Nuget
+
+```
+dotnet add package Xamarin.SegmentView
+```
+
 
 ### Update title
 ```java

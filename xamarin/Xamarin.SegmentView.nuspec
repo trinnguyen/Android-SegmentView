@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Xamarin.SegmentView</id>
+    <version>1.0.0</version>
+    <title>Xamarin.SegmentView</title>
+    <authors>Tri Nguyen</authors>
+    <owners>Tri Nguyen</owners>
+    <projectUrl>https://github.com/trinnguyen/Android-SegmentView</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple Segment Control cloned from iOS 13 for Xamarin.Android</description>
+    <releaseNotes>First version</releaseNotes>
+    <copyright>Copyright 2020</copyright>
+    <tags>Xamarin.SegmentView SegmentView</tags>
+    <dependencies>
+      <group targetFramework="MonoAndroid9.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin/Release/Xamarin.SegmentView.dll" target="lib\monoandroid90" />
+    <file src="bin/Release/Xamarin.SegmentView.pdb" target="lib\monoandroid90" />
+  </files>
+</package>
